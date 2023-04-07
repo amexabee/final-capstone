@@ -1,0 +1,215 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/bookings":
+    post:
+      summary: Creates a booking
+      tags:
+      - Bookings
+      parameters: []
+      responses:
+        '201':
+          description: Booking created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                swim_class_id:
+                  type: integer
+              required:
+              - user_id
+              - swim_class_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                swim_class_id:
+                  type: integer
+              required:
+              - user_id
+              - swim_class_id
+    get:
+      summary: Retrieves all bookings
+      tags:
+      - Bookings
+      parameters:
+      - name: booking
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Bookings found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: integer
+                  swim_class_id:
+                    type: integer
+                required: []
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: integer
+                  swim_class_id:
+                    type: integer
+                required: []
+        '404':
+          description: Booking not found
+  "/bookings/{id}":
+    get:
+      summary: Retrieves a booking
+      tags:
+      - Bookings
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Booking found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: integer
+                  swim_class_id:
+                    type: integer
+                required:
+                - id
+                - user_id
+                - swim_class_id
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: integer
+                  swim_class_id:
+                    type: integer
+                required:
+                - id
+                - user_id
+                - swim_class_id
+        '404':
+          description: Booking not found
+  "/swim_classes":
+    post:
+      summary: Creates a Swim class
+      tags:
+      - SwimClasses
+      parameters: []
+      responses:
+        '201':
+          description: Booking created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                booked:
+                  type: boolean
+              required:
+              - booked
+          application/xml:
+            schema:
+              type: object
+              properties:
+                booked:
+                  type: boolean
+              required:
+              - booked
+    get:
+      summary: Retrieves all Swim classes
+      tags:
+      - SwimClasses
+      parameters:
+      - name: swim_class
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Swim classes found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  booked:
+                    type: boolean
+                required: []
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  booked:
+                    type: boolean
+                required: []
+        '404':
+          description: Swim classes not found
+  "/swim_classes/{id}":
+    get:
+      summary: Retrieves a swim class
+      tags:
+      - SwimClasses
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Swim classes found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  booked:
+                    type: boolean
+                required:
+                - id
+                - booked
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  booked:
+                    type: boolean
+                required:
+                - id
+                - booked
+        '404':
+          description: Swim class not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
