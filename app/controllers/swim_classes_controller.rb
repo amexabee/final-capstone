@@ -25,4 +25,3 @@ class SwimClassesController < ApplicationController
     params.require(:swim_class).permit(:name, :description, :location, :image, :fee, :booked)
   end
 end
-  
