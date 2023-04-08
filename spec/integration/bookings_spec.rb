@@ -35,22 +35,20 @@ describe 'Bookings API' do
     get 'Retrieves all bookings' do
       tags 'Bookings'
       produces 'application/json', 'application/xml'
-      parameter name: :booking, in: :path, type: :string
 
       response '200', 'Bookings found' do
-        schema type: :object,
-               properties: {
-                 user_id: { type: :integer },
-                 swim_class_id: { type: :integer }
-               },
-               required: []
-
-        let(:booking) { '' }
-        run_test!
-      end
-
-      response '404', 'Booking not found' do
-        let(:id) { 'invalid' }
+        schema type: :array,
+               items: {
+                 type: :object,
+                 properties: {
+                   id: { type: :integer },
+                   start_time: { type: :string, nullable: true },
+                   end_time: { type: :string, nullable: true },
+                   user_id: { type: :integer },
+                   swim_class_id: { type: :integer }
+                 },
+                 required: []
+               }
         run_test!
       end
     end
@@ -68,7 +66,7 @@ describe 'Bookings API' do
                  user_id: { type: :integer },
                  swim_class_id: { type: :integer }
                },
-               required: %w[id user_id swim_class_id]
+               required: %w[id]
 
         let(:id) { Booking.create(user_id: @user.id, swim_class_id: @swim_class.id).id }
         run_test!

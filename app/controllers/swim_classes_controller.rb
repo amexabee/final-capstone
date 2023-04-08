@@ -5,17 +5,26 @@ class SwimClassesController < ApplicationController
   end
 
   def show
-    swim_class = SwimClass.find(params[:id])
-    render json: swim_class, status: :ok
+    begin
+      swim_class = SwimClass.find(params[:id])
+      render json: swim_class, status: :ok
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "Swimming class not found" }, status: :not_found
+    end
+    
   end
 
   def create
-    swim_class = SwimClass.new(swim_class_params)
-
-    if booking.save
-      render json: swim_class, status: :created
-    else
-      render json: { errors: swim_class.errors.full_messages }, status: :unprocessable_entity
+    begin
+      swim_class = SwimClass.new(swim_class_params)
+  
+      if swim_class.save
+        render json: swim_class, status: :created
+      else
+        render json: { errors: swim_class.errors.full_messages }, status: :unprocessable_entity
+      end
+    rescue ActionController::ParameterMissing => e
+      render json: { error: e.message }, status: :unprocessable_entity
     end
   end
 
