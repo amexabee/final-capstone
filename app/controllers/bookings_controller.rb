@@ -5,12 +5,10 @@ class BookingsController < ApplicationController
   end
 
   def show
-    begin
-      booking = Booking.find(params[:id])
-      render json: booking, status: :ok
-    rescue ActiveRecord::RecordNotFound
-      render json: { error: "Booking not found" }, status: :not_found
-    end
+    booking = Booking.find(params[:id])
+    render json: booking, status: :ok
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Booking not found' }, status: :not_found
   end
 
   def create

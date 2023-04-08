@@ -41,7 +41,7 @@ describe 'Swim class API' do
                    location: { type: :string, nullable: true },
                    image: { type: :string, nullable: true },
                    fee: { type: :decimal, nullable: true },
-                   booked: { type: :boolean },
+                   booked: { type: :boolean }
                  },
                  required: []
                }
