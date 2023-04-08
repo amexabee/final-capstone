@@ -11,7 +11,7 @@ RSpec.describe Booking, type: :model do
     it 'belongs to a user' do
       expect(@booking.user).to be(@user)
     end
-    
+
     it 'belongs to a swim_class' do
       expect(@booking.swim_class).to be(@swim)
     end
