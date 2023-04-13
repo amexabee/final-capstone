@@ -23,6 +23,15 @@ class SwimClassesController < ApplicationController
     render json: { error: e.message }, status: :unprocessable_entity
   end
 
+  def destroy
+    swim_class = SwimClass.find(params[:id])
+    swim_class.bookings.destroy_all # Delete associated bookings
+    swim_class.destroy # Delete SwimClass
+    head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Swimming class not found' }, status: :not_found
+  end
+
   private
 
   def swim_class_params

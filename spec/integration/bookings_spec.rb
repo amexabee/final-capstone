@@ -7,31 +7,6 @@ describe 'Bookings API' do
   end
 
   path '/bookings' do
-    post 'Creates a booking' do
-      tags 'Bookings'
-      consumes 'application/json', 'application/xml'
-      parameter name: :booking, in: :body, schema: {
-        type: :object,
-        properties: {
-          user_id: { type: :integer },
-          swim_class_id: { type: :integer }
-        },
-        required: %w[user_id swim_class_id]
-      }
-
-      response '201', 'Booking created' do
-        let(:booking) { { user_id: @user.id, swim_class_id: @swim_class.id } }
-        run_test!
-      end
-
-      response '422', 'invalid request' do
-        let(:booking) { { user_id: @user.id } }
-        run_test!
-      end
-    end
-  end
-
-  path '/bookings' do
     get 'Retrieves all bookings' do
       tags 'Bookings'
       produces 'application/json', 'application/xml'
@@ -74,6 +49,31 @@ describe 'Bookings API' do
 
       response '404', 'Booking not found' do
         let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
+  path '/bookings' do
+    post 'Creates a booking' do
+      tags 'Bookings'
+      consumes 'application/json', 'application/xml'
+      parameter name: :booking, in: :body, schema: {
+        type: :object,
+        properties: {
+          user_id: { type: :integer },
+          swim_class_id: { type: :integer }
+        },
+        required: %w[user_id swim_class_id]
+      }
+
+      response '201', 'Booking created' do
+        let(:booking) { { user_id: @user.id, swim_class_id: @swim_class.id } }
+        run_test!
+      end
+
+      response '422', 'invalid request' do
+        let(:booking) { { user_id: @user.id } }
         run_test!
       end
     end
