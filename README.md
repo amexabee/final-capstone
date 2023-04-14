@@ -7,12 +7,15 @@
 [Book Swimming Class Frontend](https://github.com/osamaashraf6/Final-Capstone-FrontEnd.git)
 
 ## Kanban Board
+
 [Kanban Board](https://github.com/users/amexabee/projects/1/views/1)
 
 ## Initial state Of Kanban Board
+
 [Initial Kanban Board](https://github.com/amexabee/final-capstone/issues/17)
 
-> ***We are a group of three***
+> **_We are a group of three_**
+
 1. Member 1 - [Amanuel](https://github.com/amexabee)
 2. Member 2 - [Tamana](https://github.com/tamana-Balkhi)
 3. Member 3 - [Osama](https://github.com/osamaashraf6)
@@ -33,9 +36,11 @@
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+
 - A text editor(preferably Visual Studio Code)
 
 ### Install
+
 - Ruby
 - Ruby on Rails
 - PostgresSQL
@@ -43,6 +48,7 @@ To get a local copy up and running follow these simple example steps.
 ### Using it Locally
 
 - Clone the project
+
 ```
 git clone https://github.com/amexabee/final-capstone.git
 cd final-capstone
@@ -51,11 +57,14 @@ cd final-capstone
 ### Setup
 
 Add your username & password in `database.yml` file:
+
 ```
 username: <your_username>
 password: <your_password>
 ```
+
 Specify your ruby version if different from mine
+
 ```
 ruby 'Your_ruby_version'
 ```
@@ -72,6 +81,7 @@ Setup database with:
 rails db:create
 rails db:migrate
 ```
+
 ### Usage
 
 Start server with:
@@ -107,6 +117,7 @@ run the test with:
 ```
 rspec spec
 ```
+
 ### Open API documentation
 
 ```
@@ -118,7 +129,6 @@ Visit http://localhost:3000/api-docs in your browser.
 ## Visit And Open Files
 
 [Visit Repo](https://github.com/amexabee/final-capstone)
-
 
 ## Authors
 
@@ -132,7 +142,6 @@ Visit http://localhost:3000/api-docs in your browser.
 
 - GitHub: [@tamana-Balkhi](https://github.com/tamana-Balkhi)
 - LinkedIn: [Tamana Balkhi](https://linkedin.com/in/linkedinhandle)
-  
 
 ## 🤝 Contributing
 
@@ -150,4 +159,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./LICENSE.md) licensed.
+This project is [MIT](./LICENSE) licensed.
