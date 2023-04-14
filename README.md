@@ -29,7 +29,7 @@
 
 ## Live version
 
-[In progress]
+[Live Demo](https://swimming.onrender.com/)
 
 ## Getting Started
 
